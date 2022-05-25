@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.springcloud.alibaba.dao.StorageDao">
+
+    <resultMap id="BaseResultMap" type="com.atguigu.springcloud.alibaba.domain.Storage">
+        <result column="ID" jdbcType="BIGINT" property="id"></result>
+        <result column="PRODUCT_ID" jdbcType="BIGINT" property="productId"></result>
+        <result column="TOTAL" jdbcType="INTEGER" property="total"></result>
+        <result column="USED" jdbcType="INTEGER" property="used"></result>
+        <result column="RESIDUE" jdbcType="INTEGER" property="residue"></result>
+    </resultMap>
+
+    <update id="decrease">
+        UPDATE
+            T_STORAGE
+        SET USED    = USED + #{count},
+            RESIDUE = RESIDUE - #{count}
+        WHERE PRODUCT_ID = #{productId}
+    </update>
+
+</mapper>
