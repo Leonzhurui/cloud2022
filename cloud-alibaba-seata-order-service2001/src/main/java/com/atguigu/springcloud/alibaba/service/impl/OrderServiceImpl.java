@@ -1,8 +1,8 @@
 package com.atguigu.springcloud.alibaba.service.impl;
 
+import com.atguigu.springcloud.alibaba.service.AccountService;
 import com.atguigu.springcloud.alibaba.dao.OrderDao;
 import com.atguigu.springcloud.alibaba.domain.Order;
-import com.atguigu.springcloud.alibaba.service.AccountService;
 import com.atguigu.springcloud.alibaba.service.OrderService;
 import com.atguigu.springcloud.alibaba.service.StorageService;
 import org.springframework.stereotype.Service;
@@ -36,12 +36,12 @@ public class OrderServiceImpl implements OrderService {
 
         // 2.扣减库存
         System.out.println("------>订单微服务开始调用库存，做扣减Count");
-        storageService.decrease(order.getProductId(), order.getCount());
+//        storageService.decrease(order.getProductId(), order.getCount());
         System.out.println("------>订单微服务开始调用库存，做扣减end");
 
         // 3.扣减账户
         System.out.println("------>订单微服务开始调用账户，做扣减Money");
-        accountService.decrease(order.getUserId(), order.getMoney());
+//        accountService.decrease(order.getUserId(), order.getMoney());
         System.out.println("------>订单微服务开始调用账户，做扣减end");
 
         // 4.修改订单状态，从0到1，1代表已经完成

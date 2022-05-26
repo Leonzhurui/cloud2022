@@ -42,5 +42,5 @@ logging:
 
 mybatis:
   mapper-locations:
-    - classpath:mapper/*.xml
+    - classpath*:mapper/*.xml
 
