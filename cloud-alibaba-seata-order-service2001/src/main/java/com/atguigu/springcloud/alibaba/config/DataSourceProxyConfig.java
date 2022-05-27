@@ -17,6 +17,8 @@ import java.io.IOException;
 @Configuration
 public class DataSourceProxyConfig {
 
+    @Value("${mybatis.mapper-locations}")
+    private String mapperPath;
 
     @Bean
     @ConfigurationProperties(prefix = "spring.datasource")
@@ -32,6 +34,7 @@ public class DataSourceProxyConfig {
     @Bean
     public SqlSessionFactory sqlSessionFactory(DataSourceProxy dataSourceProxy) throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
+        sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources(mapperPath));//"classpath:mapper/*.xml"
         sqlSessionFactoryBean.setDataSource(dataSourceProxy);
         return sqlSessionFactoryBean.getObject();
     }
