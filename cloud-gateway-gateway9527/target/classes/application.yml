@@ -30,8 +30,6 @@ spring:
             #- Method=GET #断言，按方法类型匹配进行路由
             #- Query=username, \d+ #断言，要有参数名username并且值还要是整数才能路由
 
-
-
 eureka:
   instance:
     hostname: cloud-gateway-service
