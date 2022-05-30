@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 @RestController
-public class StoreageController {
+public class StorageController {
 
     @Resource
     private StorageService storageService;
